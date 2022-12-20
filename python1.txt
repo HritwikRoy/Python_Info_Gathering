@@ -1,0 +1,90 @@
+
+WHOIS :
+
+https://openbase.com/python/whois/documentation
+
+
+__________________XXXXXXXXXXXXXXXXXXXXXXXX_____________________XXXXXXXXXXXXXXXXXXXXXXXX____________________XXXXXXXXXXXXXXXXXXXXXXXXX______________________
+
+
+
+DNS_LOOK_UP :
+
+https://www.geeksforgeeks.org/network-programming-in-python-dns-look-up/
+
+
+
+__________________XXXXXXXXXXXXXXXXXXXXXXXX_____________________XXXXXXXXXXXXXXXXXXXXXXXX____________________XXXXXXXXXXXXXXXXXXXXXXXXX______________________
+
+
+
+
+REQUEST (GEOLOCATION) :
+
+https://www.geeksforgeeks.org/python-requests-tutorial/
+https://www.youtube.com/watch?v=iv-Uc8d3tDs
+
+import requests
+try:
+    r = requests.get("https://geolocation-db.com/json/86f5f280-f4eb-11ec-8676-4f4388bc6daa/47.11.239.248")
+    a=r.text
+    z=eval(a) #convert str to dic
+    print(z['country_code'])
+except:
+    pass
+
+
+__________________XXXXXXXXXXXXXXXXXXXXXXXX_____________________XXXXXXXXXXXXXXXXXXXXXXXX____________________XXXXXXXXXXXXXXXXXXXXXXXXX______________________
+
+
+
+ARGPARSE :
+
+argparse = argparse.ArgumentParser(description="This is a basic information gathering tool ." , usage="python3 info_gathering.py -d DOMAIN [-s IP]") 
+
+argparse.add_argument("-d","--domain",help="Enter the domain name for footprinting .")
+argparse.add_argument("-s","--shodan",help="Enter the IP for shodan search.")
+
+args=argparse.parse_args()
+domain=args.domain
+ip=args.shodan
+
+print(f"[+] Domain {domain} and IP {ip} ")
+
+
+
+
+__________________XXXXXXXXXXXXXXXXXXXXXXXX_____________________XXXXXXXXXXXXXXXXXXXXXXXX____________________XXXXXXXXXXXXXXXXXXXXXXXXX______________________
+
+
+
+
+SHODAN :
+
+api = shodan.Shodan(API_KEY)
+try:
+  results=api.search(ip)
+  print(f"[+] Result found : {resunts['total']}")
+  for result in results['matches']:
+	print(f"[+] IP : {result['ip_str']}")
+	print(f"[+] Data \n : {result['data']}")
+except:
+  pass
+
+
+OUTPUT :
+
+    with open(output, 'a') as f:
+        f.write(whois_result)
+    f.close()
+
+
+
+
+
+
+
+
+
+
+
